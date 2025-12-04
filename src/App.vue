@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import AppHeader from './components/AppHeader.vue'
 import FilterDropdown from './components/FilterDropdown.vue'
+import BookCard from './components/BookCard.vue'
 import { ref } from 'vue'
 
 const category = ref<string | null>(null)
 const location = ref<string | null>(null)
 const bookStatus = ref<string | null>(null)
+const searchQuery = ref<string>('')
 </script>
 
 <template>
@@ -20,7 +22,13 @@ const bookStatus = ref<string | null>(null)
       </h1>
       <div class="w-1/2">
         <div class="relative">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="fill-gray-400 absolute top-1/2 left-4 transform -translate-y-1/2 text-black/50">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            class="fill-gray-400 absolute top-1/2 left-4 transform -translate-y-1/2 text-black/50"
+          >
             <g fill="" fill-rule="evenodd" clip-rule="evenodd">
               <path
                 d="M10.5 5.5a5 5 0 1 0 0 10a5 5 0 0 0 0-10m-6.5 5a6.5 6.5 0 1 1 13 0a6.5 6.5 0 0 1-13 0"
@@ -34,9 +42,10 @@ const bookStatus = ref<string | null>(null)
             type="search"
             placeholder="Rechercher un livre, un auteur, un sujet..."
             class="bg-white w-full pl-16 p-6 rounded-md text-black outline-none focus:ring-2 focus:ring-[#0A5EBE] transition"
+            v-model="searchQuery"
           />
           <button
-            class="bg-[#0A5EBE] text-white text-sm px-4 py-2 rounded-full absolute top-1/2 right-4 transform -translate-y-1/2 shadow-md hover:bg-blue-700 transition cursor-pointer"
+            :class="`${searchQuery ? 'bg-[#0A5EBE]' : 'bg-gray-400'} text-white text-sm px-4 py-3 rounded-full absolute top-1/2 right-4 transform -translate-y-1/2 shadow-md hover:bg-blue-400 transition cursor-pointer`"
           >
             Rechercher
           </button>
@@ -56,12 +65,12 @@ const bookStatus = ref<string | null>(null)
             v-model="category"
             :options="[
               { value: 'all', label: 'Toutes les catégories' },
-              { value: 'droit', label: 'Droit', icon: '⚖️' },
-              { value: 'technology', label: 'Technologie', icon: '💻' },
-              { value: 'science', label: 'Sciences', icon: '🔬' },
-              { value: 'literature', label: 'Littérature', icon: '📖' },
-              { value: 'audiobook', label: 'Livres audio', icon: '🎧' },
-              { value: 'paperback', label: 'Livres papier', icon: '📚' },
+              { value: 'droit', label: 'Droit' },
+              { value: 'technology', label: 'Technologie' },
+              { value: 'science', label: 'Sciences' },
+              { value: 'literature', label: 'Littérature' },
+              { value: 'audiobook', label: 'Livres audio' },
+              { value: 'paperback', label: 'Livres papier' },
             ]"
             placeholder="Toutes les catégories"
           />
@@ -79,9 +88,17 @@ const bookStatus = ref<string | null>(null)
       </div>
 
       <div
-        class="w-2/3 p-8 border h-200 mx-auto rounded-md bg-white shadow-md absolute z-10 top-90 left-1/2 -translate-x-1/2 overflow-y-auto"
+        class="w-2/3 p-8 h-200 mx-auto rounded-md bg-white shadow-md absolute z-10 top-90 left-1/2 -translate-x-1/2 overflow-y-auto flex flex-wrap items-center justify-center gap-4"
       >
-        <!-- div content goes here -->
+        <BookCard />
+        <BookCard />
+        <BookCard />
+        <BookCard />
+        <BookCard />
+        <BookCard />
+        <BookCard />
+        <BookCard />
+        <BookCard />
       </div>
     </section>
     <section class="h-216">
