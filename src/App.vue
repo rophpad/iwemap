@@ -2,7 +2,10 @@
 import AppHeader from './components/AppHeader.vue'
 import FilterDropdown from './components/FilterDropdown.vue'
 import BookCard from './components/BookCard.vue'
+
 import { ref } from 'vue'
+
+import { locations, categories, statuses } from './data/all'
 
 const category = ref<string | null>(null)
 const location = ref<string | null>(null)
@@ -14,13 +17,13 @@ const searchQuery = ref<string>('')
   <div id="app" class="min-h-screen bg-gray-100 border">
     <AppHeader />
     <section
-      class="min-h-full bg-linear-to-r from-white to-[#0A5EBE] text-white p-16 pb-32 flex flex-col gap-8 items-center justify-center noise relative"
+      class="min-h-full bg-linear-to-r from-white to-[#0A5EBE] text-white p-8 md:p-16 pb-32 flex flex-col gap-8 items-center justify-center noise relative"
     >
-      <h1 class="text-center text-4xl font-bold">
+      <h1 class="text-center text-2xl md:text-4xl font-bold">
         Explorez depuis n’importe où <br />
         les livres de votre bibliothèque !
       </h1>
-      <div class="w-1/2">
+      <div class="w-full md:w-1/2">
         <div class="relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -50,45 +53,23 @@ const searchQuery = ref<string>('')
             Rechercher
           </button>
         </div>
-        <div class="flex gap-4 mt-4">
+        <div class="flex flex-col lg:flex-row gap-4 mt-4">
           <FilterDropdown
             v-model="location"
-            :options="[
-              { value: 'all', label: 'Toutes les bibliothèques' },
-              { value: 'calavi', label: 'Calavi' },
-              { value: 'godomey', label: 'Godomey' },
-              { value: 'cotonou', label: 'Cotonou' },
-            ]"
+            :options="locations"
             placeholder="Toutes les bibliothèques"
           />
           <FilterDropdown
             v-model="category"
-            :options="[
-              { value: 'all', label: 'Toutes les catégories' },
-              { value: 'droit', label: 'Droit' },
-              { value: 'technology', label: 'Technologie' },
-              { value: 'science', label: 'Sciences' },
-              { value: 'literature', label: 'Littérature' },
-              { value: 'audiobook', label: 'Livres audio' },
-              { value: 'paperback', label: 'Livres papier' },
-            ]"
+            :options="categories"
             placeholder="Toutes les catégories"
           />
-          <FilterDropdown
-            v-model="bookStatus"
-            :options="[
-              { value: 'all', label: 'Tous les statuts' },
-              { value: 'available', label: 'Nouveaux' },
-              { value: 'checked_out', label: 'Empruntables' },
-              { value: 'non_loanable', label: 'Non empruntables' },
-            ]"
-            placeholder="Tous les status"
-          />
+          <FilterDropdown v-model="bookStatus" :options="statuses" placeholder="Tous les statuts" />
         </div>
       </div>
 
       <div
-        class="w-2/3 p-8 h-200 mx-auto rounded-md bg-white shadow-md absolute z-10 top-90 left-1/2 -translate-x-1/2 overflow-y-auto flex flex-wrap items-center justify-center gap-4"
+        class="w-5/6 lg:w-2/3 p-8 h-200 mx-auto rounded-md bg-white shadow-md absolute z-10  top-116 lg:top-90 left-1/2 -translate-x-1/2 overflow-y-auto flex flex-wrap items-center justify-center gap-4"
       >
         <BookCard />
         <BookCard />
