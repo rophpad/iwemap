@@ -16,15 +16,15 @@ const pagesToShow = computed(() => {
   pages.push(1)
 
   // Left ellipsis
-  if (c > 4) pages.push('...')
+  if (c > 2) pages.push('...')
 
   // Pages around current: (c-2, c-1, c, c+1, c+2)
-  for (let p = c - 2; p <= c + 2; p++) {
+  for (let p = c - 1; p <= c + 1; p++) {
     if (p > 1 && p < t) pages.push(p)
   }
 
   // Right ellipsis
-  if (c < t - 3) pages.push('...')
+  if (c < t - 1) pages.push('...')
 
   // Always include last page
   if (t > 1) pages.push(t)

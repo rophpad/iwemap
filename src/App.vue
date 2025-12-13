@@ -83,7 +83,7 @@ const searchQuery = ref<string>('')
           <BookCard />
           <BookCard />
         </div>
-        <Pagination :total-pages="5" />
+        <Pagination :total-pages="100" />
       </div>
     </section>
     <section class="h-580 md:h-224 bg-gray-100 flex items-end  justify-center text-xs p-4">

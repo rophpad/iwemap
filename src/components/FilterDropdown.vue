@@ -43,7 +43,7 @@
         />
       </div>
 
-      <div class="max-h-56 overflow-auto">
+      <div class="max-h-56 overflow-auto no-scrollbar">
         <button
           v-for="opt in filteredOptions"
           :key="opt.value"
