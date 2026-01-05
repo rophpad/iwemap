@@ -5,8 +5,25 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('../pages/HomePage.vue'),
+      name: 'AppLayout',
+      component: () => import('../layouts/AppLayout.vue'),
+      children: [
+        {
+          path: '',
+          name: 'HomePage',
+          component: () => import('../pages/HomePage.vue'),
+        },
+        {
+          path: '/livres',
+          name: 'BooksPage',
+          component: () => import('../pages/BooksPage.vue'),
+        },
+        {
+          path: '/bibliotheques',
+          name: 'LibrariesPage',
+          component: () => import('../pages/LibrariesPage.vue'),
+        },
+      ],
     },
   ],
 })
