@@ -24,11 +24,11 @@ const searchQuery = ref<string>('')
       >
         Star on Github
       </a>
-      <h1 class="text-center text-2xl md:text-4xl font-bold">
-        Explorez depuis n’importe où <br />
+      <h1 class="w-full text-center text-2xl md:text-4xl font-bold">
+        Explorez depuis n’importe où <br class="hidden md:block"/>
         les livres de vos bibliothèques !
       </h1>
-      <div class="h- w-96">
+      <div class="h- md:w-96">
         <img src="/vector1.png" alt="books" class="object-cover" />
       </div>
       <div
