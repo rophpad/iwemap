@@ -5,9 +5,9 @@ import { ref } from 'vue'
 
 import { locations, categories, statuses } from '../data/all'
 
-const category = ref<string | null>(null)
-const location = ref<string | null>(null)
-const bookStatus = ref<string | null>(null)
+const category = ref<string>('all')
+const location = ref<string>('all')
+const bookStatus = ref<string>('all')
 const searchQuery = ref<string>('')
 </script>
 
@@ -25,10 +25,10 @@ const searchQuery = ref<string>('')
         Star on Github
       </a>
       <h1 class="w-full text-center text-2xl md:text-4xl font-bold">
-        Explorez depuis n’importe où <br class="hidden md:block"/>
+        Explorez depuis n’importe où <br class="hidden md:block" />
         les livres de vos bibliothèques !
       </h1>
-      <div class="h- md:w-96">
+      <div class="h-  lg:w-96">
         <img src="/vector1.png" alt="books" class="object-cover" />
       </div>
       <div
@@ -58,7 +58,7 @@ const searchQuery = ref<string>('')
             v-model="searchQuery"
           />
           <button
-            :class="`${searchQuery ? 'bg-[#0A5EBE]' : 'bg-[#0A5EBE]'} text-white text-sm px-4 py-3 rounded-full absolute top-1/2 right-4 transform -translate-y-1/2 shadow-md hover:scale-95 transition cursor-pointer`"
+            :class="`${searchQuery ? 'bg-[#0A5EBE]' : 'bg-[#0A5EBE]'} hidden md:block text-white text-sm px-4 py-3 rounded-full absolute top-1/2 right-4 transform -translate-y-1/2 shadow-md hover:scale-95 transition cursor-pointer`"
           >
             Rechercher
           </button>
@@ -75,11 +75,26 @@ const searchQuery = ref<string>('')
             placeholder="Toutes les catégories"
           />
           <FilterDropdown v-model="bookStatus" :options="statuses" placeholder="Tous les statuts" />
+          <button
+            :class="`${searchQuery ? 'bg-[#0A5EBE]' : 'bg-[#0A5EBE]'} md:hidden text-white text-sm px-4 py-3 rounded-full shadow-md hover:scale-95 transition cursor-pointer`"
+          >
+            Rechercher
+          </button>
         </div>
       </div>
     </section>
-    <section class="pt-72 md:pt-48 lg:pt-24 bg-white flex flex-col items-center justify-center">
+    <section class="pt-80 md:pt-48 lg:pt-24 bg-white flex flex-col items-center justify-center">
       <RouterView />
+
+      <p class="font-semibold text-xl">
+        <span v-if="searchQuery || location !== 'all' || category !== 'all' || bookStatus !== 'all'"
+          >Résultats de recherche pour
+        </span>
+        <span v-if="searchQuery">livre: <<{{ searchQuery }}>>,</span>
+        <span v-if="location !== 'all'"> bibliothèque: <<{{ location }}>>,</span>
+        <span v-if="category !== 'all'"> catégorie: <<{{ category }}>></span>
+        <span v-if="bookStatus !== 'all'">, statut: <<{{ bookStatus }}>></span>
+      </p>
     </section>
   </div>
 </template>

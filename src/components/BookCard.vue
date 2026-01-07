@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-max md:size-64 border border-black/10 bg-white rounded-xl p-5 flex flex-col gap-4 shadow-sm"
+    class="w-full h-max  border border-black/10 bg-white rounded-xl p-5 flex flex-col gap-4 shadow-sm"
   >
     <!-- Title & Author -->
     <div>
