@@ -48,7 +48,7 @@ watch(
       class="bg-linear-to-r from-white to-[#0A5EBE] text-white p-8 md:pb-30 flex flex-col gap-4 items-center justify-center noise relative"
     >
       <a
-        href="https://github.com"
+        href="https://github.com/rophpad/iwemap"
         target="_blank"
         rel="noopener noreferrer"
         class="border border-white/30 rounded-full px-4 py-2 text-xs font-medium hover:bg-white/10 transition"
