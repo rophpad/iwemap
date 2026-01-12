@@ -22,7 +22,7 @@ const searchStore = useSearchStore()
           width="32"
           height="32"
           viewBox="0 0 24 24"
-          class="size-16 stroke-[#0A5EBE]/50"
+          class="size-16 stroke-[#0A5EBE]"
         >
           <path
             fill="none"
@@ -44,7 +44,7 @@ const searchStore = useSearchStore()
           width="32"
           height="32"
           viewBox="0 0 24 24"
-          class="size-16 fill-[#0A5EBE]/50"
+          class="size-16 fill-[#0A5EBE]"
         >
           <path
             fill=""
@@ -65,7 +65,7 @@ const searchStore = useSearchStore()
           width="32"
           height="32"
           viewBox="0 0 24 24"
-          class="size-16 fill-[#0A5EBE]/50"
+          class="size-16 fill-[#0A5EBE]"
         >
           <path
             fill=""

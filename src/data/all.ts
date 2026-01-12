@@ -4,8 +4,6 @@ export const categories = [
   { value: 'technology', label: 'Technologie' },
   { value: 'science', label: 'Sciences' },
   { value: 'literature', label: 'Littérature' },
-  { value: 'audiobook', label: 'Livres audio' },
-  { value: 'paperback', label: 'Livres papier' },
 ]
 
 export const locations = [
@@ -17,6 +15,6 @@ export const locations = [
 
 export const statuses = [
   { value: 'all', label: 'Tous les statuts' },
-  { value: 'new', label: 'Nouveau' },
+  { value: 'unborrowable', label: 'Non-empruntable' },
   { value: 'borrowable', label: 'Empruntable' },
 ]

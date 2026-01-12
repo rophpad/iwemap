@@ -23,7 +23,7 @@ const categoryLabels: Record<string, string> = {
 
 // Map status to display label
 const statusLabels: Record<string, string> = {
-  new: 'Nouveau',
+  unborrowable: 'Non-empruntable',
   borrowable: 'Empruntable',
 }
 
@@ -56,7 +56,10 @@ const displayStatus = statusLabels[props.status] || props.status
 
     <!-- Status -->
     <div class="flex flex-wrap gap-2">
-      <span class="px-3 py-1 rounded-full border border-gray-300 text-xs text-gray-700 bg-gray-50">
+      <span
+        class="px-3 py-1 rounded-full border border-gray-300 text-xs text-gray-700"
+        :class="`${status === 'borrowable' && 'bg-[#0A5EBE]/10 text-[#0A5EBE] border-[#0A5EBE]/30'}`"
+      >
         {{ displayStatus }}
       </span>
     </div>

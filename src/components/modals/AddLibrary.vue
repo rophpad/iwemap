@@ -1,76 +1,64 @@
 <template>
-  <!-- <form action="">
-    <h2 class="text-xl font-bold mb-4">Ajouter une nouvelle bibliothèque</h2>
-    <div class="mb-4">
-      <label for="libraryName" class="block text-gray-700 mb-2">Nom de la bibliothèque :</label>
-      <input
-        type="text"
-        id="libraryName"
-        class="w-full px-3 py-2 border border-gray-300 rounded"
-        placeholder="Entrez le nom de la bibliothèque"
-      />
+  <div
+    class=" w-full bg-white text-black flex flex-col items-center space-y-4"
+  >
+    <div class="p-3 rounded-full">
+     <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          class="size-16 stroke-[#0A5EBE]"
+        >
+          <path
+            fill="none"
+            stroke=""
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M3 16h18M2 22h20M3 9h18M3 22V8c0-2.828 0-4.243.93-5.121S6.358 2 9.353 2h5.294c2.995 0 4.492 0 5.423.879C21 3.757 21 5.172 21 8v14m-10-3h2M10 9L9 5M6.5 9V5M14 16v-4m-2-3V5m4 11l1-4m2 4v-4"
+          />
+        </svg>
     </div>
-    <div class="mb-4">
-      <label for="libraryAddress" class="block text-gray-700 mb-2"
-        >Adresse de la bibliothèque :</label
-      >
-      <input
-        type="text"
-        id="libraryAddress"
-        class="w-full px-3 py-2 border border-gray-300 rounded"
-        placeholder="Entrez l'adresse de la bibliothèque"
-      />
-    </div>
-    <div class="mb-4">
-      <label for="libraryContact" class="block text-gray-700 mb-2"
-        >Contact de la bibliothèque :</label
-      >
-      <input
-        type="text"
-        id="libraryContact"
-        class="w-full px-3 py-2 border border-gray-300 rounded"
-        placeholder="Entrez le contact de la bibliothèque"
-      />
-    </div>
-    <div class="mb-4">
-      <label for="bookCsv" class="block text-gray-700 mb-2"
-        >Importer la liste des livres au format csv</label
-      >
-      <input
-        type="file"
-        id="bookCsv"
-        class="w-full px-3 py-2 border border-gray-300 rounded"
-        accept=".csv"
-      />
-    </div>
-    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-      Ajouter la bibliothèque
-    </button>
-  </form> -->
 
-  <div class="flex flex-col items-center space-y-4">
-    <p>
-      Pour ajouter une bibliothèque, veuillez nous contacter à
-      <a href="mailto:contact@votresite.com" class="font-semibold underline italic"
-        >contact@votresite.com</a
+    <h3 class="text-lg font-semibold ">
+      Ajouter une bibliothèque
+    </h3>
+
+    <p class="text-sm text-center">
+      Pour ajouter votre bibliothèque et vos livres, veuillez remplir le formulaire suivant :
+    </p>
+
+    <div class="w-full flex gap-2">
+      <a
+        href="https://forms.gle/D4Jo5gWJGvT7i9dU6"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex-1 inline-flex justify-center items-center px-4 py-2 bg-[#0A5EBE] text-white rounded hover:bg-[#084a8a] focus:outline-none"
       >
-      avec:
+        Ouvrir le formulaire
+      </a>
+
+      <button
+        type="button"
+        @click="copyLink"
+        class="px-3 py-2 text-white bg-gray-100 dark:bg-slate-700 text-sm rounded hover:bg-gray-200 dark:hover:bg-slate-600"
+        title="Copier le lien"
+      >
+        Copier le lien
+      </button>
+    </div>
+
+    <p class="text-xs text-slate-500 dark:text-slate-400">
+      Vous pouvez aussi partager ce lien avec d'autres contributeurs.
     </p>
-    <ul class="w-full list-disc list-inside mb-4">
-      <li>Le nom de la bibliothèque</li>
-      <li>Le contact de la bibliothèque</li>
-      <li>La liste des livres au format CSV</li>
-    </ul>
-    <p class="w-full">NB: La liste des livres doit être au format:</p>
-    <p>Nom du livre | Auteur | Catégorie | Status(Empruntable/Nouveau)</p>
-    <p>
-      Nous nous chargerons d'ajouter votre bibliothèque à la plateforme dans les plus brefs délais.
-    </p>
-    <a
-      href="mailto:contact@votresite.com?subject=Demande%20d'ajout%20de%20bibliothèque&body=Bonjour,%0A%0AJe%20souhaiterais%20ajouter%20ma%20bibliothèque%20à%20votre%20plateforme.%20Voici%20les%20informations%20nécessaires%20:%0A%0ANom%20de%20la%20bibliothèque%20:%0AAdresse%20:%0AContact%20:%0A%0AMerci%20d'avance.%0A"
-      class="text-xs p-4 rounded-xl bg- hover:bg-linear-to-r from-white to-[#0A5EBE]/50 hover:scale-95 transition noise cursor-pointer"
-    >
-      Ajouter votre bibliothèque
-    </a>
   </div>
 </template>
+
+<script setup lang="ts">
+const copyLink = () => {
+  navigator.clipboard.writeText('https://forms.gle/D4Jo5gWJGvT7i9dU6').catch(() => {
+    // ignore errors (e.g. clipboard unavailable) or handle as needed
+  });
+};
+</script>

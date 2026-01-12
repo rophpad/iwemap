@@ -45,7 +45,7 @@ watch(
 <template>
   <div class="h-full bg-gray-100">
     <section
-      class="bg-linear-to-r from-white to-[#0A5EBE] text-white p-8 md:pb-30 flex flex-col gap-4 items-center justify-center noise relative"
+      class="bg-[#0A5EBE] text-white p-8 md:pb-30 flex flex-col gap-4 items-center justify-center noise relative"
     >
       <a
         href="https://github.com/rophpad/iwemap"

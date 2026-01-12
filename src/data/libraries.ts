@@ -20,7 +20,7 @@ export const Libraries = [
         author: 'Jean Dupont',
         category: 'droit',
         locations: ['Calavi'],
-        status: 'new',
+        status: 'unborrowable',
         description: 'Les fondamentaux du droit civil et pénal',
       },
       {
@@ -47,7 +47,7 @@ export const Libraries = [
         author: 'Yuval Noah Harari',
         category: 'science',
         locations: ['Calavi'],
-        status: 'new',
+        status: 'unborrowable',
         description: "Une brève histoire de l'humanité",
       },
       {
@@ -83,7 +83,7 @@ export const Libraries = [
         author: 'Carl Sagan',
         category: 'science',
         locations: ['Calavi'],
-        status: 'new',
+        status: 'unborrowable',
         description: "Une exploration de l'univers",
       },
       {
@@ -101,7 +101,7 @@ export const Libraries = [
         author: 'Pierre Lefebvre',
         category: 'droit',
         locations: ['Calavi'],
-        status: 'new',
+        status: 'unborrowable',
         description: 'Les principes fondamentaux du droit pénal',
       },
       {
