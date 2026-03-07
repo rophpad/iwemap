@@ -51,7 +51,18 @@ const displayStatus = statusLabels[props.status] || props.status
     <!-- Availability -->
     <div class="text-sm">
       <p class="text-gray-600">Disponible à la bibliothèque de :</p>
-      <p class="font-medium text-gray-800">{{ locations.join(', ') }}</p>
+
+      <p class="font-medium text-gray-800">
+        <template v-for="(location, index) in locations" :key="location">
+          <a
+            :href="`https://maps.google.com/?q=bibliothèque+${encodeURIComponent(location)}`"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:underline hover:text-[#0A5EBE] transition-colors"
+            >{{ location }}</a
+          ><span v-if="index < locations.length - 1">, </span>
+        </template>
+      </p>
     </div>
 
     <!-- Status -->
