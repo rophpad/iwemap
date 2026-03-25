@@ -32,6 +32,7 @@ import { Libraries } from '@/data/libraries'
         <BookCard
           v-for="book in library.books.slice(0, 4)"
           :key="book.id"
+          :book-id="book.id"
           :title="book.title"
           :author="book.author"
           :category="book.category"
