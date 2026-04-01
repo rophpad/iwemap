@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
+
 interface Props {
+  bookId?: string
   title: string
   author: string
   category: string
@@ -29,10 +33,14 @@ const statusLabels: Record<string, string> = {
 
 const displayCategory = categoryLabels[props.category] || props.category
 const displayStatus = statusLabels[props.status] || props.status
+const cardComponent = computed(() => (props.bookId ? RouterLink : 'div'))
+const bookLink = computed(() => (props.bookId ? `/livres/${props.bookId}` : undefined))
 </script>
 
 <template>
-  <div
+  <component
+    :is="cardComponent"
+    :to="bookLink"
     class="w-full h-max border border-black/10 bg-white rounded-xl p-5 flex flex-col gap-4 shadow-sm hover:shadow-md transition"
   >
     <!-- Title & Author -->
@@ -74,5 +82,5 @@ const displayStatus = statusLabels[props.status] || props.status
         {{ displayStatus }}
       </span>
     </div>
-  </div>
+  </component>
 </template>

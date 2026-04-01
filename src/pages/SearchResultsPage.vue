@@ -100,6 +100,7 @@ const hasResults = computed(() => resultCount.value > 0)
       <BookCard
         v-for="book in searchStore.paginatedBooks"
         :key="book.id"
+        :book-id="book.id"
         :title="book.title"
         :author="book.author"
         :category="book.category"

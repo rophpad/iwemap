@@ -44,6 +44,7 @@ const router = useRouter()
         <BookCard
           v-for="book in library.books"
           :key="book.id"
+          :book-id="book.id"
           :title="book.title"
           :author="book.author"
           :category="book.category"
