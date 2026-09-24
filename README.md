@@ -1,54 +1,46 @@
-# .
+# Iwemap
 
-This template should help get you started developing with Vue 3 in Vite.
+Open-source online explorer for physical library books.
 
-## Recommended IDE Setup
+Live: [iwemap.vercel.app](https://iwemap.vercel.app)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## What it does
 
-## Recommended Browser Setup
+Iwemap makes the physical catalog of a library discoverable online. Visitors can browse available books, search, and explore participating libraries — close to borrowing a real book.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Features
 
-## Type Support for `.vue` Imports in TS
+- **Browse books** across a library's collection
+- **Search** with result pages and filters
+- **Library explorer** — locations and details for participating libraries
+- **Borrow flow** — select books you want to check out
+- **Multi-language selector** and pagination
+- **Library onboarding** — add a new library to the platform
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Tech stack
 
-## Customize configuration
+- [Vue 3](https://vuejs.org) + [Vite](https://vite.dev)
+- [Pinia](https://pinia.vuejs.org) state management
+- [Vue Router](https://router.vuejs.org)
+- Tailwind CSS
+- Unit tests with [Vitest](https://vitest.dev)
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Getting started
 
 ```sh
 pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 pnpm dev
 ```
 
-### Type-Check, Compile and Minify for Production
+See the [Vite configuration reference](https://vite.dev/config/) for build settings. Run the test suite with `pnpm test:unit`.
 
-```sh
-pnpm build
-```
+## Project structure
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+- `src/pages` — HomePage, BooksPage, BookPage, LibrariesPage, SearchResultsPage
+- `src/components` — BookCard, FilterDropdown, LanguageSelector, modals (AddLibrary, BorrowBooks, LibraryLocation, ProfileForm)
+- `src/data` — `libraries.ts` and `all.ts` seed data
+- `src/stores` — Pinia stores for search and modals
 
-```sh
-pnpm test:unit
-```
+## Status
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
+Active open-source project. Default Vue/Vite template README replaced on 2026-09; feature set reflects the current codebase.
